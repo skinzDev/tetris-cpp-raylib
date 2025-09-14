@@ -1,0 +1,20 @@
+﻿  TetrisGame.cpp
+C:\Users\skinzor\source\repos\ConsoleApplication1\TAK3\TetrisGame.cpp(238,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\skinzor\source\repos\ConsoleApplication1\TAK3\TetrisGame.cpp(265,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+TetrisGame.obj : error LNK2019: unresolved external symbol InitWindow referenced in function "public: void __cdecl TetrisGame::Run(void)" (?Run@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol WindowShouldClose referenced in function "public: void __cdecl TetrisGame::Run(void)" (?Run@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol GetScreenWidth referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol GetScreenHeight referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol ClearBackground referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol BeginDrawing referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol EndDrawing referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol SetTargetFPS referenced in function "public: void __cdecl TetrisGame::Run(void)" (?Run@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol IsKeyPressed referenced in function "public: void __cdecl TetrisGame::Update(void)" (?Update@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol IsKeyDown referenced in function "public: bool __cdecl TetrisGame::ResolveLateralMovement(void)" (?ResolveLateralMovement@TetrisGame@@QEAA_NXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol DrawLine referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol DrawRectangle referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol DrawText referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol MeasureText referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisGame.obj : error LNK2019: unresolved external symbol TextFormat referenced in function "public: void __cdecl TetrisGame::Draw(void)" (?Draw@TetrisGame@@QEAAXXZ)
+TetrisPiece.obj : error LNK2019: unresolved external symbol GetRandomValue referenced in function "public: void __cdecl TetrisPiece::GenerateRandomPiece(void)" (?GenerateRandomPiece@TetrisPiece@@QEAAXXZ)
+C:\Users\skinzor\source\repos\ConsoleApplication1\x64\Debug\TAK3.exe : fatal error LNK1120: 16 unresolved externals
