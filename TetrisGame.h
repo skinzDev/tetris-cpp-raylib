@@ -24,6 +24,8 @@ private:
     Color fadingColor;
     int level;
     int lines;
+    int score;
+    int highScore;
 
     int gravityMovementCounter;
     int lateralMovementCounter;
@@ -32,10 +34,20 @@ private:
     int fadeLineCounter;
     int gravitySpeed;
 
+    int* levelProgression;
+    int maxAchievedLevel;
+    bool levelUpAchieved;
+
     static TetrisGame* instance;
+    
+    void UpdateLevel();
+    void LoadHighScore();
+    void SaveHighScore();
+    void DemonstrateInheritance();
 
 public:
     TetrisGame();
+    ~TetrisGame();
     void Initialize();
     bool CreatePiece();
     void ResolveFallingMovement();

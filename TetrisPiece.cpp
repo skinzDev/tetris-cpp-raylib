@@ -1,87 +1,84 @@
 #include "TetrisPiece.h"
 #include "include/raylib.h"
 
-TetrisPiece::TetrisPiece() : positionX(0), positionY(0) {
-    Clear();
-}
-
 void TetrisPiece::Clear() {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
             shape[i][j] = GridSquare::EMPTY;
         }
     }
+    std::cout << "Piece shape cleared" << std::endl;
 }
 
 void TetrisPiece::GenerateRandomPiece() {
     Clear();
-    int random = GetRandomValue(0, 6);
+    pieceType = GetRandomValue(0, 6);
+    
+    std::cout << "Generating random piece type: " << pieceType << std::endl;
 
-    switch (random) {
+    switch (pieceType) {
     case 0:
         shape[1][1] = GridSquare::MOVING;
         shape[2][1] = GridSquare::MOVING;
         shape[1][2] = GridSquare::MOVING;
         shape[2][2] = GridSquare::MOVING;
+        std::cout << "Generated Square piece" << std::endl;
         break;
     case 1:
         shape[1][0] = GridSquare::MOVING;
         shape[1][1] = GridSquare::MOVING;
         shape[1][2] = GridSquare::MOVING;
         shape[2][2] = GridSquare::MOVING;
+        std::cout << "Generated L piece" << std::endl;
         break;
     case 2:
         shape[1][2] = GridSquare::MOVING;
         shape[2][0] = GridSquare::MOVING;
         shape[2][1] = GridSquare::MOVING;
         shape[2][2] = GridSquare::MOVING;
+        std::cout << "Generated Reverse L piece" << std::endl;
         break;
     case 3:
         shape[0][1] = GridSquare::MOVING;
         shape[1][1] = GridSquare::MOVING;
         shape[2][1] = GridSquare::MOVING;
         shape[3][1] = GridSquare::MOVING;
+        std::cout << "Generated Line piece" << std::endl;
         break;
     case 4:
         shape[1][0] = GridSquare::MOVING;
         shape[1][1] = GridSquare::MOVING;
         shape[1][2] = GridSquare::MOVING;
         shape[2][1] = GridSquare::MOVING;
+        std::cout << "Generated T piece" << std::endl;
         break;
     case 5:
         shape[1][1] = GridSquare::MOVING;
         shape[2][1] = GridSquare::MOVING;
         shape[2][2] = GridSquare::MOVING;
         shape[3][2] = GridSquare::MOVING;
+        std::cout << "Generated S piece" << std::endl;
         break;
     case 6:
         shape[1][2] = GridSquare::MOVING;
         shape[2][2] = GridSquare::MOVING;
         shape[2][1] = GridSquare::MOVING;
         shape[3][1] = GridSquare::MOVING;
+        std::cout << "Generated Z piece" << std::endl;
         break;
     }
-}
-
-void TetrisPiece::SetPosition(int x, int y) {
-    positionX = x;
-    positionY = y;
-}
-
-int TetrisPiece::GetPositionX() const {
-    return positionX;
-}
-
-int TetrisPiece::GetPositionY() const {
-    return positionY;
+    
+    SetActive(true);
 }
 
 void TetrisPiece::MoveX(int delta) {
     positionX += delta;
+    std::cout << "Piece moved X by " << delta << " using inherited positionX" << std::endl;
 }
 
 void TetrisPiece::MoveY(int delta) {
     positionY += delta;
+    std::cout << "Piece moved Y by " << delta << " using inherited positionY" << std::endl;
 }
 
 GridSquare TetrisPiece::GetCell(int x, int y) const {
@@ -103,9 +100,21 @@ void TetrisPiece::CopyFrom(const TetrisPiece& other) {
             shape[i][j] = other.shape[i][j];
         }
     }
+    
+    positionX = other.positionX;
+    positionY = other.positionY;
+    isActive = other.isActive;
+    pieceType = other.pieceType;
+    
+    std::cout << "Piece copied including inherited properties" << std::endl;
 }
 
 void TetrisPiece::Rotate() {
+    if (!IsActive()) {
+        std::cout << "Cannot rotate inactive piece" << std::endl;
+        return;
+    }
+    
     GridSquare aux;
 
     aux = shape[0][0];
@@ -131,4 +140,6 @@ void TetrisPiece::Rotate() {
     shape[2][1] = shape[2][2];
     shape[2][2] = shape[1][2];
     shape[1][2] = aux;
+    
+    std::cout << "Piece rotated at position (" << GetPositionX() << ", " << GetPositionY() << ")" << std::endl;
 }
